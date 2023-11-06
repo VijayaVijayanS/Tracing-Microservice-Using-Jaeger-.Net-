@@ -1,16 +1,32 @@
-# Tracing-Microservice-Using-Jaeger-.Net-
+# Alpaca API AWS Lambda Function with OpenTelemetry
 
-* This code demonstrates a simple .NET console application that retrieves and displays assets from the Alpaca API. 
-  The application integrates OpenTelemetry for distributed tracing and utilizes the Jaeger exporter for tracing visualization. 
+## Description:
 
-* The application retrieves active assets from the Alpaca API and prints informationabout each asset, such as its symbol, name, exchange, 
-  tradability, and status.
+A sample AWS Lambda function written in C# that interacts with the Alpaca API to retrieve and display assets. It also uses OpenTelemetry for tracing Lambda executions.
 
-* By leveraging the OpenTelemetry library, the application traces various operations, such as asset retrieval, using the Jaeger exporter 
-  to send traces to a Jaeger instance running on the specified IP address and port. The code sets up the tracer with a specific service 
-  name and configures it to collect traces for the "AlpacaApp" service.
+## LambdaService:
 
-* This application, when executed within the context of AWS Lambda, can efficiently harness the capabilities of serverless computing to 
-  manage and trace these operations. By setting up OpenTelemetry and Jaeger for distributed tracing.
+This LambdaService application retrieves and displays assets from the Alpaca API.
 
-Additionally, the code creates spans to trace the asset retrieval and display operations, providing visibility into the application's behavior.
+## Setup
+
+### Prerequisites
+- .NET Core SDK
+- Alpaca API Key and Secret Key
+- AWS Lambda and API Gateway setup
+- Jaeger instance for tracing
+
+### Installation
+1. Clone the repository.
+2. Open the solution in Visual Studio or any other compatible IDE.
+3. Update the Alpaca API key and secret key in the code.
+4. Deploy the Lambda function to AWS Lambda.
+5. Configure API Gateway to trigger the Lambda function.
+6. Set up Jaeger for tracing and update the host and port in the code.
+
+### Usage
+The Lambda function can be triggered via the API Gateway endpoint. It retrieves a list of assets from the Alpaca API and returns the asset details in JSON format.
+
+## Functionality
+The `FunctionHandler` method in the `Function` class retrieves and processes assets from the Alpaca API. The function also integrates tracing using OpenTelemetry and exports data to a Jaeger instance.
+
